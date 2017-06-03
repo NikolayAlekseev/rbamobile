@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasBackButton="{Binding HasBackButton}"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:manager="clr-namespace:Rbauto.ViewModels.Manager;assembly=Rbauto"
+             x:Class="Rbauto.Views.ManagerInfoPage"
+             Padding="50, 50, 50, 50"
+             Title="{Binding Title}">
+  <ContentPage.BindingContext>
+    <manager:ManagerInfoViewModel />
+  </ContentPage.BindingContext>
+  <StackLayout>
+    <Label Text="Введите Ваш ИНН" TextColor="Silver"/>
+    <Entry x:Name="Inn" 
+           Text="{Binding Inn}" 
+           Keyboard="Numeric" 
+           Placeholder="инн"
+           PlaceholderColor="#E8EBEF"
+           TextColor="{Binding InnColor}" 
+           IsEnabled="{Binding IsControlEnabled}"
+           HorizontalTextAlignment="Center"
+           FontSize="26" 
+           FontAttributes="Bold"
+           TextChanged="Inn_OnTextChanged"/>
+    <StackLayout Orientation="Horizontal" Padding="0, 20, 0, 50" >
+      <Button Text="Очистить"
+            BackgroundColor="White"
+            Clicked="ClearButton_OnClicked"
+            IsEnabled="{Binding IsControlEnabled}"/>
+      <Button Text="Продолжить" 
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="{Binding NextButtonBackgroundColor}"
+            TextColor="{Binding NextButtonTextColor}"
+            Clicked="NextButton_OnClicked"
+            IsEnabled="{Binding IsControlEnabled}"/>
+    </StackLayout>
+    <ActivityIndicator 
+      x:Name="Indicator"
+      Color="#F0811E"
+      IsVisible="{Binding	InProgress}"
+			IsRunning="{Binding	InProgress}"/>
+  </StackLayout>
+</ContentPage>

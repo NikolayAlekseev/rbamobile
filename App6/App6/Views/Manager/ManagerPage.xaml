@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasBackButton="{Binding HasManager}"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Rbauto.Views.ManagerPage"
+             Padding="20, 20, 20, 20"
+             xmlns:manager="clr-namespace:Rbauto.ViewModels.Manager"
+             Title="{Binding Title}">
+  <ContentPage.BindingContext>
+    <manager:ManagerViewModel />
+  </ContentPage.BindingContext>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Сменить компанию" Activated="ChangeCompany_Activated" Order="Secondary"/>
+    <ToolbarItem Text="Сбросить компанию" Activated="ClearCompany_Activated" Order="Secondary"/>
+  </ContentPage.ToolbarItems>
+  <StackLayout x:Name="Layout">
+    <Label Text="Компания" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding AccountName}" TextColor="Gray" FontSize="Medium" />
+
+    <Label Text="Ваш менеджер" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding OwnerName}" TextColor="Gray" FontSize="Medium" />
+    
+    <Label Text="Отдел продаж" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding BranchName}" TextColor="Gray" FontSize="Medium" />
+
+    <Label Text="{Binding CommunicationType1}" IsVisible="{Binding Communication1IsVisible}" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding Communication1}" IsVisible="{Binding Communication1IsVisible}" TextColor="Gray" FontSize="Medium" />
+
+    <Label Text="{Binding CommunicationType2}" IsVisible="{Binding Communication2IsVisible}" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding Communication2}" IsVisible="{Binding Communication2IsVisible}" TextColor="Gray" FontSize="Medium" />
+
+    <Label Text="{Binding CommunicationType3}" IsVisible="{Binding Communication3IsVisible}" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding Communication3}" IsVisible="{Binding Communication3IsVisible}" TextColor="Gray" FontSize="Medium" />
+
+    <Label Text="{Binding CommunicationType4}" IsVisible="{Binding Communication4IsVisible}" TextColor="Silver" FontSize="Small" />
+    <Label Text="{Binding Communication4}" IsVisible="{Binding Communication4IsVisible}" TextColor="Gray" FontSize="Medium" />
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Rbauto.ViewModels;assembly=Rbauto"
+             x:Class="Rbauto.Views.AboutPage"
+             Title="{Binding Title}">
+  <ContentPage.BindingContext>
+    <viewModels:AboutViewModel />
+  </ContentPage.BindingContext>
+  <ScrollView>
+    <StackLayout Orientation="Vertical" Padding="16,16,16,40" Spacing="10">
+      <Image Source="http://www.rbauto.ru/files/nodus_items/0002/1170/attaches/01.jpg" Aspect="AspectFit" HeightRequest="120" />
+      <Label FontSize="16">
+        Русбизнесавто - ведущий оператор на рынке продаж грузовой автотехники, автобусов и спецтехники, обладатель сети современных станций технического обслуживания и ремонта грузовой автотехники, а также один из лидеров по организации снабжения предприятий запасными частями к грузовым автомобилям.
+      </Label>
+      <Label FontSize="16">
+        Основным принципом деятельности компании Русбизнесавто является комплексный подход. Русбизнесавто имеет возможность предоставить потребителю не только самый широкий ассортимент продукции различных производителей в одном месте, сервисное обслуживание и поставку запасных частей, но и комплекс дополнительных услуг: от установки оборудования и разработки эксклюзивных заказов до формирования специальных предложений по кредитным и лизинговым программам.
+      </Label>
+      <Label FontSize="16">
+        <Label.FormattedText>
+          <FormattedString>
+            <FormattedString.Spans>
+              <Span Text="Миссия компании Русбизнесавто" FontAttributes="Bold" FontSize="16" />
+              <Span Text=" направлена на обеспечение клиентов современными грузовыми, специальными и пассажирскими автотранспортными средствами, предоставление качественного сервисного обслуживания и обеспечение запасными частями, а также на содействие бизнесу партнеров и потребителей на основе прочных долговременных взаимоотношений."/>
+            </FormattedString.Spans>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+      <Label FontSize="16">
+        Все это в комплексе является залогом стабильного лидирующего положения компании Русбизнесавто на рынке грузовой автотехники России.
+      </Label>
+      <Button Text="Перейти на сайт" Command="{Binding GotoSiteCommand}" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Rbauto.Views.NewsPage"
+              Title="{Binding Title}"
+             x:Name="BrowseNewsItemsPage">
+  <ContentPage.Content>
+    <StackLayout>
+      <ListView x:Name="ItemsListView"
+				ItemsSource="{Binding Items}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+				ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid Padding="10">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="17*" />
+                  <ColumnDefinition Width="83*" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Image"  
+                        Grid.Column="0" 
+                      Source="{Binding ImageUrl}" />
+                <StackLayout Spacing="0" Grid.Column="1" Padding="5">
+                  <Label Text="{Binding NewsDate}"
+                         Style="{DynamicResource ListItemTextStyle}"
+                         TextColor="Silver"
+                         FontSize="Small"/>
+                  <Label Text="{Binding Name}"
+                         Style="{DynamicResource ListItemDetailTextStyle}"
+                         FontSize="Medium"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

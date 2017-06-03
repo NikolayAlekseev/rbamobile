@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Rbauto.Views.ContactDetailPage"
+             Title="{Binding Title}">
+  <ScrollView>
+	  <StackLayout Spacing="10" Padding="15">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Text="Адрес: " FontSize="Small" TextColor="Gray" />
+        <Label Grid.Row="0" Grid.Column="1" Text="{Binding ContactItem.Address}" FontSize="Small"/>
+        <Label Grid.Row="1" Grid.Column="0" Text="Тел./факс: " FontSize="Small" TextColor="Gray" />
+        <Label Grid.Row="1" Grid.Column="1" Text="{Binding ContactItem.Phones}" FontSize="Small" FontAttributes="Bold"/>
+        <Label Grid.Row="2" Grid.Column="0" Text="Email: " FontSize="Small" TextColor="Gray" />
+        <Label Grid.Row="2" Grid.Column="1" Text="{Binding ContactItem.Email}" FontSize="Small" FontAttributes="Bold"/>
+        <Label Grid.Row="3" Grid.Column="0" Text="Гр. работы: " FontSize="Small" TextColor="Gray" />
+        <Label Grid.Row="3" Grid.Column="1" Text="{Binding ContactItem.Schedule}" FontSize="Small"/>
+      </Grid>
+      <ActivityIndicator	
+        Color="Silver"
+        IsVisible="{Binding	
+									Source={x:Reference	Image},													
+									Path=IsLoading}"
+				IsRunning="{Binding	
+									Source={x:Reference	Image},													
+									Path=IsLoading}"/>
+      <Image x:Name="Image"  
+             Source="{Binding ContactItem.MapUrl}" 
+             HorizontalOptions="Fill" 
+             Aspect="AspectFit" 
+             IsVisible="{Binding MapExist}"
+             HeightRequest="250" />
+      <Label Text="{Binding ContactItem.MapDescription}" FontSize="Small"/>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
