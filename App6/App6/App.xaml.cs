@@ -17,7 +17,10 @@ namespace Rbauto
 
         protected override void OnStart()
         {
-            CrossPushNotification.Current.Register();
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                CrossPushNotification.Current.Register();
+            }
         }
 
         public static void SetMainPage()

@@ -4,10 +4,11 @@ using Android.Content.PM;
 using Android.OS;
 using PushNotification.Plugin;
 using Rbauto.Android.Services;
+using Xamarin.Forms;
 
 namespace Rbauto.Android
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, 
+    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -24,9 +25,11 @@ namespace Rbauto.Android
 
             AppContext = this.ApplicationContext;
 
-            CrossPushNotification.Initialize<CrossPushNotificationListener>("850599225142");
-
-            StartPushService();
+            if (Device.RuntimePlatform == Device.Android)
+            {
+				CrossPushNotification.Initialize<CrossPushNotificationListener>("850599225142");
+				StartPushService();
+			}
 
             LoadApplication(new App());
         }
