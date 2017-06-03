@@ -10,7 +10,9 @@ namespace Rbauto.Services
     public class CrmApiService
     {
         //private const string URL = "http://mssqlvm.sim:81/api/account/";
-        private const string URL = "http://alekseevn.ru:82/api/account/";
+        //private const string URL = "http://alekseevn.ru:82/api/account/";
+        //private const string URL = "http://rba.alekseevn.ru:48881/api/account/";
+        private const string URL = "http://93.188.43.50:48881/api/account/";
 
         public static async Task<AccountEntity> GetAccountByInnAsync(string inn)
         {
@@ -21,8 +23,8 @@ namespace Rbauto.Services
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
+			var response = await client.GetAsync($"{URL}{inn}"); // Blocking call!
             // List data response.
-            var response = client.GetAsync($"{URL}{inn}").Result; // Blocking call!
             if (response.IsSuccessStatusCode)
             {
                 // Parse the response body. Blocking!
@@ -32,9 +34,9 @@ namespace Rbauto.Services
             throw new Exception($"{response.StatusCode} {response.ReasonPhrase}");
         }
 
-        public async static Task<AccountEntity> GetAccountByInnFake(string inn)
-        {
-            return null;
-        }
+        //public async static Task<AccountEntity> GetAccountByInnFake(string inn)
+        //{
+        //    return null;
+        //}
     }
 }
