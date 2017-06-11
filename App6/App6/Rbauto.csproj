@@ -92,6 +92,9 @@
     </Compile>
     <Compile Include="Views\NewsDetailPage.cs" />
     <Compile Include="Views\WebViewDemoPage.cs" />
+    <Compile Include="Views\RepairRequest\ManagerInfoPage.xaml.cs">
+      <DependentUpon>ManagerInfoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -111,6 +114,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NewItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RepairRequest\ManagerInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -159,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\temporary\" />
+    <Folder Include="Views\RepairRequest\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\NewsPage.xaml">
